@@ -1,0 +1,154 @@
+@import "tailwindcss";
+@import "@fontsource/playfair-display/400.css";
+@import "@fontsource/playfair-display/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@theme {
+  --color-surface: #F7F6F3;
+  --color-text-primary: #111111;
+  --color-accent: #4c44e4;
+  --color-accent-hover: #3a35b5;
+  --color-accent-light: #EEEDFC;
+  --color-success: #2D6A4F;
+  --color-success-light: #E9F5EE;
+  --color-warning: #92400E;
+  --color-warning-light: #FEF3C7;
+  --color-border: #E5E2DB;
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --radius: 6px;
+}
+
+/* shadcn-ui CSS variables */
+:root {
+  /* Canvas */
+  --background: 40 14% 96%;
+  --foreground: 0 0% 7%;
+
+  /* Cards & surfaces */
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 7%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 7%;
+
+  /* Primary = indigo accent (#4c44e4) */
+  --primary: 243 76% 58%;
+  --primary-foreground: 0 0% 100%;
+
+  /* Secondary = neutral warm gray */
+  --secondary: 40 8% 90%;
+  --secondary-foreground: 0 0% 7%;
+
+  /* Muted */
+  --muted: 40 10% 93%;
+  --muted-foreground: 0 0% 40%;
+
+  /* Accent = same as primary */
+  --accent: 243 76% 58%;
+  --accent-foreground: 0 0% 100%;
+
+  /* Functional */
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 152 30% 42%;
+  --success-foreground: 0 0% 100%;
+
+  --warning: 40 60% 50%;
+  --warning-foreground: 0 0% 7%;
+
+  /* Borders & inputs */
+  --border: 40 10% 86%;
+  --input: 40 10% 86%;
+  --ring: 243 76% 58%;
+
+  --radius: 6px;
+
+  /* Sidebar */
+  --sidebar-background: 40 12% 94%;
+  --sidebar-foreground: 0 0% 7%;
+  --sidebar-primary: 243 76% 58%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 40 8% 90%;
+  --sidebar-accent-foreground: 0 0% 7%;
+  --sidebar-border: 40 10% 86%;
+  --sidebar-ring: 243 76% 58%;
+}
+
+/* Base styles */
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: hsl(var(--foreground));
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 1.875rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+
+/* Utility classes */
+.prose-width {
+  max-width: 720px;
+}
+
+.transition-calm {
+  transition-property: color, background-color, border-color, opacity, transform;
+  transition-duration: 175ms;
+  transition-timing-function: ease-in-out;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Print styles (from ARB) */
+@media print {
+  nav, .print\:hidden { display: none !important; }
+  body, body * { background: white !important; }
+  body { margin: 0; padding: 0.5in; }
+  @page { margin: 0; }
+  * { color: black !important; -webkit-print-color-adjust: exact; }
+  h2 { break-after: avoid; }
+  section, [data-section] { break-inside: avoid; }
+}
+
+/* shadcn-ui animation keyframes (replacing tailwindcss-animate) */
+@keyframes accordion-down {
+  from { height: 0; }
+  to { height: var(--radix-accordion-content-height); }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height); }
+  to { height: 0; }
+}
+
+@keyframes collapsible-down {
+  from { height: 0; }
+  to { height: var(--radix-collapsible-content-height); }
+}
+
+@keyframes collapsible-up {
+  from { height: var(--radix-collapsible-content-height); }
+  to { height: 0; }
+}
